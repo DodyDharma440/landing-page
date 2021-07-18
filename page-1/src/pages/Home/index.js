@@ -1,8 +1,8 @@
 import React from "react";
-import { Container } from "styles";
+import { Header } from "components";
 
 const Home = () => {
-  return <Container>test</Container>;
+  return <Header />;
 };
 
 export default Home;

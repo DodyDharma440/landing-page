@@ -14,6 +14,12 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     background: ${(p) => p.theme.colors.background};
   }
+  a {
+    text-decoration: none;
+  }
+  h1,h2,h3,h4,h5,h6,p,span,a {
+    color: ${(p) => p.theme.colors.textDefault}
+  }
 `;
 
 export default GlobalStyle;
