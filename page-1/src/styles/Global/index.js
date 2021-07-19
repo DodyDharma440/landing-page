@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     overflow-x: hidden;
     background: ${(p) => p.theme.colors.background};
+    line-height: 1.8;
   }
   a {
     text-decoration: none;

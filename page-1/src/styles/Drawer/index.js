@@ -21,4 +21,8 @@ export const Overlay = styled.div`
   opacity: 0.7;
 `;
 
+export const Content = styled.div`
+  padding: 1rem;
+`;
+
 export default Drawer;

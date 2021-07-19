@@ -2,9 +2,10 @@ const theme = {
   colors: {
     primary: "#1264fa",
     textLight: "#fff",
-    textDark: "#000839",
-    textDefault: "#222222",
+    textDark: "#222222",
+    textDefault: "#000839",
     background: "#fff",
+    backgroundDark: "#000839",
   },
   fonts: ["'Poppins', sans-serif"],
   fontSize: {

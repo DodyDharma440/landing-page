@@ -1,6 +1,10 @@
 import React from "react";
 import { Transition } from "react-transition-group";
-import { Drawer as DrawerContainer, DrawerOverlay } from "styles";
+import {
+  Drawer as DrawerContainer,
+  DrawerOverlay,
+  DrawerContent,
+} from "styles";
 
 const Drawer = ({ children, open, onClose, position }) => {
   const DURATION = 300;
@@ -60,7 +64,7 @@ const Drawer = ({ children, open, onClose, position }) => {
               ...drawerTransitionStyle[state],
             }}
           >
-            {children}
+            <DrawerContent>{children}</DrawerContent>
           </DrawerContainer>
         )}
       </Transition>

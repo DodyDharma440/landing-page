@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { HiMenu } from "react-icons/hi";
-import { Container, Button } from "styles";
+import { Container, Button, Divider } from "styles";
 import { Drawer } from "components";
 import { navLinks } from "constants/navLinks";
 import { useDisclosure } from "hooks";
@@ -61,18 +61,6 @@ const NavLinkList = styled.div`
   margin-bottom: 0.8rem;
 `;
 
-const DrawerContent = styled.div`
-  padding: 1rem;
-`;
-
-const Divider = styled.hr`
-  margin: 0;
-  border: 0;
-  height: 1px;
-  width: 100%;
-  background-color: #bbb;
-`;
-
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -96,17 +84,15 @@ const Header = () => {
             <HiMenu size={30} />
           </NavMenuButton>
           <Drawer position="left" open={isOpen} onClose={onClose}>
-            <DrawerContent>
-              <AppLogo>Design</AppLogo>
-              <Divider style={{ margin: "0.8rem 0" }} />
-              {navLinks.map((nav, index) => (
-                <NavLinkList key={index}>
-                  <NavLink style={{ margin: 0 }} href={nav.path}>
-                    {nav.label}
-                  </NavLink>
-                </NavLinkList>
-              ))}
-            </DrawerContent>
+            <AppLogo>Design</AppLogo>
+            <Divider style={{ margin: "0.8rem 0" }} />
+            {navLinks.map((nav, index) => (
+              <NavLinkList key={index}>
+                <NavLink style={{ margin: 0 }} href={nav.path}>
+                  {nav.label}
+                </NavLink>
+              </NavLinkList>
+            ))}
           </Drawer>
         </MobileNavBar>
       </Content>

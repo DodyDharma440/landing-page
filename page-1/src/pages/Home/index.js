@@ -1,8 +1,13 @@
 import React from "react";
-import { Header } from "components";
+import { Header, Hero } from "components";
 
 const Home = () => {
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <Hero />
+    </>
+  );
 };
 
 export default Home;
