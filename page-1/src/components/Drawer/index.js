@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Transition } from "react-transition-group";
 import {
   Drawer as DrawerContainer,
@@ -9,6 +9,7 @@ import {
 const Drawer = ({ children, open, onClose, position }) => {
   const DURATION = 300;
   const DRAWER_WIDTH = 300;
+  const rootElement = document.getElementById("root");
 
   const overlayDefaultStyle = {
     transition: `opacity ${DURATION}ms ease-in-out`,
@@ -53,6 +54,19 @@ const Drawer = ({ children, open, onClose, position }) => {
     exited: {},
   };
 
+  const handleClose = () => {
+    document.body.style.overflow = "";
+    rootElement.style.overflow = "";
+    onClose();
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      rootElement.style.overflow = "hidden";
+    }
+  }, [open, rootElement.style]);
+
   return (
     <>
       <Transition in={open} timeout={DURATION}>
@@ -75,7 +89,7 @@ const Drawer = ({ children, open, onClose, position }) => {
               ...overlayDefaultStyle,
               ...overlayTransitionStyles[state],
             }}
-            onClick={onClose}
+            onClick={handleClose}
           />
         )}
       </Transition>

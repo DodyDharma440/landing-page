@@ -1,11 +1,13 @@
 import React from "react";
-import { Header, Hero } from "components";
+import { Header, Hero, AchievementsCount, HowItWorks } from "components";
 
 const Home = () => {
   return (
     <>
       <Header />
       <Hero />
+      <AchievementsCount />
+      <HowItWorks />
     </>
   );
 };

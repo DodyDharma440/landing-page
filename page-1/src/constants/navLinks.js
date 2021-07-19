@@ -4,19 +4,19 @@ export const navLinks = [
     label: "Home",
   },
   {
+    path: "#services",
+    label: "Services",
+  },
+  {
     path: "#about",
-    label: "About Us",
+    label: "About",
+  },
+  {
+    path: "#blog",
+    label: "Blog",
   },
   {
     path: "#contact",
-    label: "Contact Us",
-  },
-  {
-    path: "#",
-    label: "Other Nav",
-  },
-  {
-    path: "#",
-    label: "Features",
+    label: "Contact",
   },
 ];

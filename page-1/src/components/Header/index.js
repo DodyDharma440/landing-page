@@ -45,6 +45,7 @@ const NavMenuButton = styled.div`
 
 const NavLinks = styled.div`
   display: flex;
+  gap: 1rem;
   align-items: center;
 `;
 
