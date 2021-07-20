@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { FcServices, FcWorkflow } from "react-icons/fc";
-import { Section, Container, Row, Button } from "styles";
+import { Section as SectionStyle, Container, Row, Button } from "styles";
 import { FeatureCard } from "components";
 import HeroImage from "assets/images/hero_1.jpg.webp";
+
+const Section = styled(SectionStyle)`
+  padding-top: 150px;
+`;
 
 const ContentLeft = styled.div`
   width: 40%;

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { HiMenu } from "react-icons/hi";
-import { Container, Button, Divider } from "styles";
+import { Container, Button, Divider, NavLink } from "styles";
 import { Drawer } from "components";
 import { navLinks } from "constants/navLinks";
 import { useDisclosure } from "hooks";
+
+const Navbar = styled.div`
+  background-color: ${(p) => (p.isTop ? "transparent" : "#fff")};
+  transition: all 0.5s ease;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: ${(p) => !p.isTop && "0 0 5px #00000033"};
+`;
 
 const Content = styled.div`
   padding: 1rem 0;
@@ -38,6 +49,9 @@ const MobileNavBar = styled.div`
 const NavMenuButton = styled.div`
   cursor: pointer;
   transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
     transform: translateY(-2px);
   }
@@ -49,55 +63,65 @@ const NavLinks = styled.div`
   align-items: center;
 `;
 
-const NavLink = styled.a`
-  font-weight: 300;
-  transition: all 0.3s;
-  margin: 0 0.5rem;
-  &:hover {
-    color: ${(p) => p.theme.colors.primary};
-  }
-`;
-
 const NavLinkList = styled.div`
   margin-bottom: 0.8rem;
 `;
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isTop, setIsTop] = useState(true);
+
+  const handleChangeColor = () => {
+    if (window.pageYOffset > 100) {
+      setIsTop(false);
+    } else {
+      setIsTop(true);
+    }
+  };
+
+  useEffect(() => {
+    document.body.onscroll = handleChangeColor;
+  }, []);
 
   return (
-    <Container>
-      <Content>
-        <DesktopNavBar>
-          <AppLogo>Design</AppLogo>
-          <NavLinks>
-            {navLinks.map((nav, index) => (
-              <NavLink key={index} href={nav.path}>
-                {nav.label}
-              </NavLink>
-            ))}
-          </NavLinks>
-          <Button variant="outlined">Free Templates</Button>
-        </DesktopNavBar>
-        <MobileNavBar>
-          <AppLogo>Design</AppLogo>
-          <NavMenuButton onClick={onOpen}>
-            <HiMenu size={30} />
-          </NavMenuButton>
-          <Drawer position="left" open={isOpen} onClose={onClose}>
+    <Navbar isTop={isTop}>
+      <Container>
+        <Content>
+          <DesktopNavBar>
             <AppLogo>Design</AppLogo>
-            <Divider style={{ margin: "0.8rem 0" }} />
-            {navLinks.map((nav, index) => (
-              <NavLinkList key={index}>
-                <NavLink style={{ margin: 0 }} href={nav.path}>
+            <NavLinks>
+              {navLinks.map((nav, index) => (
+                <NavLink key={index} href={nav.path}>
                   {nav.label}
                 </NavLink>
-              </NavLinkList>
-            ))}
-          </Drawer>
-        </MobileNavBar>
-      </Content>
-    </Container>
+              ))}
+            </NavLinks>
+            <Button variant="outlined">Free Templates</Button>
+          </DesktopNavBar>
+          <MobileNavBar>
+            <AppLogo>Design</AppLogo>
+            <NavMenuButton onClick={onOpen}>
+              <HiMenu size={30} />
+            </NavMenuButton>
+            <Drawer position="left" open={isOpen} onClose={onClose}>
+              <AppLogo>Design</AppLogo>
+              <Divider style={{ margin: "0.8rem 0" }} />
+              {navLinks.map((nav, index) => (
+                <NavLinkList key={index}>
+                  <NavLink
+                    onClick={onClose}
+                    style={{ margin: 0 }}
+                    href={nav.path}
+                  >
+                    {nav.label}
+                  </NavLink>
+                </NavLinkList>
+              ))}
+            </Drawer>
+          </MobileNavBar>
+        </Content>
+      </Container>
+    </Navbar>
   );
 };
 

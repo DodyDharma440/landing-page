@@ -9,6 +9,7 @@ import Divider from "./Divider";
 import Section from "./Section";
 import Row from "./Row";
 import IconWrapper from "./IconWrapper";
+import NavLink from "./NavLink";
 
 export {
   GlobalStyle,
@@ -21,4 +22,5 @@ export {
   Section,
   Row,
   IconWrapper,
+  NavLink,
 };

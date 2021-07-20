@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { FcShipped, FcReadingEbook, FcDataSheet } from "react-icons/fc";
 import { Section, Container } from "styles";
 import { Title, FeatureCard } from "components";
+import { ArrowRightUp, ArrowRightDown } from "assets/svg";
 
 const Features = styled.div`
-  width: 85%;
+  width: 95%;
   margin: 0px auto;
   display: flex;
-  gap: 5rem;
   align-items: center;
   @media ${(p) => p.theme.breakpoints.up.lg} {
     flex-wrap: wrap;
@@ -19,6 +19,13 @@ const Features = styled.div`
 
 const CardWrapper = styled.div`
   margin-bottom: 2rem;
+`;
+
+const ArrowWrapper = styled.div`
+  width: 300px;
+  @media ${(p) => p.theme.breakpoints.up.lg} {
+    display: none;
+  }
 `;
 
 const HowItWorks = () => {
@@ -38,6 +45,9 @@ const HowItWorks = () => {
               description="Connect your store, import your products, then send us your inventory."
             />
           </CardWrapper>
+          <ArrowWrapper>
+            <ArrowRightUp />
+          </ArrowWrapper>
           <CardWrapper>
             <FeatureCard
               icon={<FcDataSheet size={60} />}
@@ -45,6 +55,9 @@ const HowItWorks = () => {
               description="We store your inventory in any combination of our fulfillment centers."
             />
           </CardWrapper>
+          <ArrowWrapper>
+            <ArrowRightDown />
+          </ArrowWrapper>
           <CardWrapper>
             <FeatureCard
               icon={<FcShipped size={60} />}

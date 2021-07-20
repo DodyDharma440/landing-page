@@ -21,6 +21,9 @@ const GlobalStyle = createGlobalStyle`
   h1,h2,h3,h4,h5,h6,p,span,a,strong {
     color: ${(p) => p.theme.colors.textDefault}
   }
+  p, a {
+    font-weight: 300;
+  }
 `;
 
 export default GlobalStyle;

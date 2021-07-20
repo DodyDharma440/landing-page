@@ -1,5 +1,12 @@
 import React from "react";
-import { Header, Hero, AchievementsCount, HowItWorks } from "components";
+import {
+  Header,
+  Hero,
+  AchievementsCount,
+  HowItWorks,
+  Services,
+  Footer,
+} from "components";
 
 const Home = () => {
   return (
@@ -8,6 +15,8 @@ const Home = () => {
       <Hero />
       <AchievementsCount />
       <HowItWorks />
+      <Services />
+      <Footer />
     </>
   );
 };

@@ -54,16 +54,13 @@ const Drawer = ({ children, open, onClose, position }) => {
     exited: {},
   };
 
-  const handleClose = () => {
-    document.body.style.overflow = "";
-    rootElement.style.overflow = "";
-    onClose();
-  };
-
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
       rootElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      rootElement.style.overflow = "";
     }
   }, [open, rootElement.style]);
 
@@ -89,7 +86,7 @@ const Drawer = ({ children, open, onClose, position }) => {
               ...overlayDefaultStyle,
               ...overlayTransitionStyles[state],
             }}
-            onClick={handleClose}
+            onClick={onClose}
           />
         )}
       </Transition>
