@@ -5,6 +5,7 @@ const theme = {
     textDark: "#222222",
     textDefault: "#000839",
     background: "#fff",
+    background2: "#f8f9fa",
     backgroundDark: "#000839",
   },
   fonts: ["'Poppins', sans-serif"],
@@ -15,6 +16,10 @@ const theme = {
     xl: "3rem",
   },
   breakpoints: {
+    sm: "576px",
+    md: "768px",
+    lg: "992px",
+    xl: "1200px",
     up: {
       sm: "(max-width: 576px)",
       md: "(max-width: 768px)",

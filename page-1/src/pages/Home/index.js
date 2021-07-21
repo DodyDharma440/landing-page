@@ -6,6 +6,8 @@ import {
   HowItWorks,
   Services,
   Footer,
+  About,
+  Blog,
 } from "components";
 
 const Home = () => {
@@ -16,7 +18,9 @@ const Home = () => {
       <AchievementsCount />
       <HowItWorks />
       <Services />
-      <Footer />
+      <About />
+      <Blog />
+      <Footer background="background2" />
     </>
   );
 };

@@ -11,7 +11,6 @@ import ServicesImage from "assets/images/services.webp";
 import DottedImage from "assets/images/dotted.webp";
 
 const Section = styled(SectionStyle)`
-  background-color: #f8f9fa;
   position: relative;
   z-index: 1;
 `;
@@ -91,7 +90,7 @@ const Figure = styled.figure`
 
 const Services = () => {
   return (
-    <Section id="services">
+    <Section id="services" background="background2">
       <Container>
         <Row>
           <ContentLeft>

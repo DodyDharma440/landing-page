@@ -1,6 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { FaHeart } from "react-icons/fa";
+import {
+  TiSocialFacebook,
+  TiSocialTwitter,
+  TiSocialInstagram,
+  TiSocialDribbble,
+  TiSocialLinkedin,
+} from "react-icons/ti";
 import { Section, Container, Row, Divider, NavLink } from "styles";
 
 const Copyright = styled.p`
@@ -53,6 +60,7 @@ const IconSocial = styled.div`
   transition: all 0.3s;
   :hover {
     color: ${(p) => p.theme.colors.primary};
+    cursor: pointer;
   }
 `;
 
@@ -72,10 +80,10 @@ const ListNav = styled.div`
   }
 `;
 
-const Footer = () => {
+const Footer = ({ background }) => {
   return (
     <>
-      <Section>
+      <Section background={background}>
         <Container>
           <Row align="flex-start">
             <ContentLeft>
@@ -87,11 +95,21 @@ const Footer = () => {
               </Description>
               <Title>Follow Our Social Media</Title>
               <IconSocials>
-                <IconSocial>a</IconSocial>
-                <IconSocial>b</IconSocial>
-                <IconSocial>c</IconSocial>
-                <IconSocial>d</IconSocial>
-                <IconSocial></IconSocial>
+                <IconSocial>
+                  <TiSocialFacebook size={20} />
+                </IconSocial>
+                <IconSocial>
+                  <TiSocialTwitter size={20} />
+                </IconSocial>
+                <IconSocial>
+                  <TiSocialInstagram size={20} />
+                </IconSocial>
+                <IconSocial>
+                  <TiSocialDribbble size={20} />
+                </IconSocial>
+                <IconSocial>
+                  <TiSocialLinkedin size={20} />
+                </IconSocial>
               </IconSocials>
             </ContentLeft>
             <ContentRight>
