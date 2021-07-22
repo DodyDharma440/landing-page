@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { HiArrowNarrowRight, HiArrowNarrowLeft } from "react-icons/hi";
-import { Carousel } from "react-responsive-carousel";
 import { Section, Container, Button as ButtonStyle, Row } from "styles";
-import { testimonials } from "constants/testimonials";
+import { Testimonials } from "components";
 
 const Content = styled.div`
   max-width: ${(p) => p.theme.breakpoints.md};
@@ -27,35 +25,6 @@ const Description = styled.p`
 const Button = styled(ButtonStyle)`
   padding: 0.8rem 1.5rem;
   margin-bottom: 2rem;
-`;
-
-const CarouselWrapper = styled.div`
-  min-height: 100%;
-`;
-
-const CarouselItem = styled.div`
-  max-width: ${(p) => p.theme.breakpoints.sm};
-  padding-top: 2rem;
-  padding-bottom: 5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin: 0 auto;
-  text-align: center;
-`;
-
-const Avatar = styled.img`
-  width: 70px !important;
-  height: 70px;
-  border-radius: 50%;
-`;
-
-const TestiDesc = styled.p`
-  margin: 1rem 0;
-`;
-
-const TestiName = styled.p`
-  margin-top: 0.5rem;
-  font-weight: bold;
 `;
 
 const About = () => {
@@ -104,28 +73,7 @@ const About = () => {
         </Container>
       </Section>
       <Section>
-        <CarouselWrapper>
-          <Carousel
-            showThumbs={false}
-            infiniteLoop
-            showStatus={false}
-            // renderArrowNext={(clickHandler, hasNext, label) => (
-            //   <HiArrowNarrowRight onClick={clickHandler} />
-            // )}
-            // renderArrowPrev={(clickHandler, hasPrev, label) => (
-            //   <HiArrowNarrowLeft onClick={clickHandler} />
-            // )}
-          >
-            {testimonials.map((el, id) => (
-              <CarouselItem key={id}>
-                <Avatar src={el.avatar} />
-                <TestiDesc>{`"${el.description}"`}</TestiDesc>
-                <TestiName>{el.name}</TestiName>
-                <p>{el.work}</p>
-              </CarouselItem>
-            ))}
-          </Carousel>
-        </CarouselWrapper>
+        <Testimonials />
       </Section>
     </>
   );

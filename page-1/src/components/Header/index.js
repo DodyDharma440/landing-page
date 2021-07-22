@@ -14,12 +14,14 @@ const Navbar = styled.div`
   right: 0;
   left: 0;
   z-index: 100;
+  padding: 1rem 0;
   box-shadow: ${(p) => !p.isTop && "0 0 5px #00000033"};
+  @media ${(p) => p.theme.breakpoints.up.md} {
+    padding: ${(p) => (p.isTop ? "1rem 0" : "0.5rem 0")};
+  }
 `;
 
-const Content = styled.div`
-  padding: 1rem 0;
-`;
+const Content = styled.div``;
 
 const AppLogo = styled.h1`
   font-size: 1.5rem;
@@ -34,7 +36,7 @@ const DesktopNavBar = styled.div`
   align-items: center;
   @media ${(p) => p.theme.breakpoints.down.lg} {
     display: flex;
-  } ;
+  }
 `;
 
 const MobileNavBar = styled.div`
@@ -43,7 +45,7 @@ const MobileNavBar = styled.div`
   align-items: center;
   @media ${(p) => p.theme.breakpoints.down.lg} {
     display: none;
-  } ;
+  }
 `;
 
 const NavMenuButton = styled.div`
@@ -86,40 +88,38 @@ const Header = () => {
   return (
     <Navbar isTop={isTop}>
       <Container>
-        <Content>
-          <DesktopNavBar>
+        <DesktopNavBar>
+          <AppLogo>Design</AppLogo>
+          <NavLinks>
+            {navLinks.map((nav, index) => (
+              <NavLink key={index} href={nav.path}>
+                {nav.label}
+              </NavLink>
+            ))}
+          </NavLinks>
+          <Button variant="outlined">Free Templates</Button>
+        </DesktopNavBar>
+        <MobileNavBar>
+          <AppLogo>Design</AppLogo>
+          <NavMenuButton onClick={onOpen}>
+            <HiMenu size={30} />
+          </NavMenuButton>
+          <Drawer position="left" open={isOpen} onClose={onClose}>
             <AppLogo>Design</AppLogo>
-            <NavLinks>
-              {navLinks.map((nav, index) => (
-                <NavLink key={index} href={nav.path}>
+            <Divider style={{ margin: "0.8rem 0" }} />
+            {navLinks.map((nav, index) => (
+              <NavLinkList key={index}>
+                <NavLink
+                  onClick={onClose}
+                  style={{ margin: 0 }}
+                  href={nav.path}
+                >
                   {nav.label}
                 </NavLink>
-              ))}
-            </NavLinks>
-            <Button variant="outlined">Free Templates</Button>
-          </DesktopNavBar>
-          <MobileNavBar>
-            <AppLogo>Design</AppLogo>
-            <NavMenuButton onClick={onOpen}>
-              <HiMenu size={30} />
-            </NavMenuButton>
-            <Drawer position="left" open={isOpen} onClose={onClose}>
-              <AppLogo>Design</AppLogo>
-              <Divider style={{ margin: "0.8rem 0" }} />
-              {navLinks.map((nav, index) => (
-                <NavLinkList key={index}>
-                  <NavLink
-                    onClick={onClose}
-                    style={{ margin: 0 }}
-                    href={nav.path}
-                  >
-                    {nav.label}
-                  </NavLink>
-                </NavLinkList>
-              ))}
-            </Drawer>
-          </MobileNavBar>
-        </Content>
+              </NavLinkList>
+            ))}
+          </Drawer>
+        </MobileNavBar>
       </Container>
     </Navbar>
   );

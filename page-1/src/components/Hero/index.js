@@ -7,6 +7,8 @@ import HeroImage from "assets/images/hero_1.jpg.webp";
 
 const Section = styled(SectionStyle)`
   padding-top: 150px;
+  position: relative;
+  z-index: 1;
 `;
 
 const ContentLeft = styled.div`
@@ -61,13 +63,17 @@ const Image = styled.img`
 const SquareBg = styled.div`
   ::before {
     content: "";
-    width: 100%;
-    height: 70%;
-    background: #dae1e7;
     position: absolute;
-    z-index: -1;
+    width: 150%;
+    right: -100%;
+    height: 70%;
     bottom: -70px;
-    left: 40%;
+    z-index: -1;
+    background: #dae1e7;
+    /* @media ${(p) => p.theme.breakpoints.down.md} {
+      width: 150%;
+      right: -100%;
+    } */
   }
 `;
 

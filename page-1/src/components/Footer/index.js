@@ -144,8 +144,15 @@ const Footer = ({ background }) => {
       <Container>
         <Divider />
         <Copyright>
-          Copyright ©2021 All rights reserved | This template is made with{" "}
-          <FaHeart size={12} color="#d33" /> by Colorlib
+          Copyright ©2021 All rights reserved | This website is made with{" "}
+          <FaHeart size={12} color="#d33" /> design from{" "}
+          <NavLink
+            href="https://preview.colorlib.com/theme/design/index.html"
+            target="_blank"
+            style={{ margin: 0 }}
+          >
+            Colorlib
+          </NavLink>
         </Copyright>
       </Container>
     </>

@@ -9,6 +9,8 @@ import Services from "./Services";
 import Footer from "./Footer";
 import About from "./About";
 import Blog from "./Blog";
+import Testimonials from "./Testimonials";
+import Contact from "./Contact";
 
 export {
   Header,
@@ -22,4 +24,6 @@ export {
   Footer,
   About,
   Blog,
+  Testimonials,
+  Contact,
 };

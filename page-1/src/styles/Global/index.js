@@ -18,11 +18,14 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
-  h1,h2,h3,h4,h5,h6,p,span,a,strong {
+  h1,h2,h3,h4,h5,h6,p,span,a,strong,label {
     color: ${(p) => p.theme.colors.textDefault}
   }
   p, a {
     font-weight: 300;
+  }
+  #root {
+    overflow-x: hidden;
   }
 `;
 

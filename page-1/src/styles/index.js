@@ -10,6 +10,7 @@ import Section from "./Section";
 import Row from "./Row";
 import IconWrapper from "./IconWrapper";
 import NavLink from "./NavLink";
+import Avatar from "./Avatar";
 
 export {
   GlobalStyle,
@@ -23,4 +24,5 @@ export {
   Row,
   IconWrapper,
   NavLink,
+  Avatar,
 };
