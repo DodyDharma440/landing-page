@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     background-color: ${(p) => p.theme.colors.background.primary};
     line-height: 27px;
+    font-size: 14px;
   }
   a {
     text-decoration: none;

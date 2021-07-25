@@ -8,6 +8,8 @@ const theme = {
       dark: "#1e1c27",
     },
     text: {
+      primary: "#222222",
+      secondary: "#ffffff",
       light: "#ffffff",
       dark: "#222222",
       description: "#777777",
