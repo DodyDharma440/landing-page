@@ -4,6 +4,9 @@ const Container = styled.div`
   margin: 0px auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding: ${(p) => p.noPadding && "0"};
+  width: ${(p) => p.fluid && "100%"} !important;
+  max-width: ${(p) => p.fluid && "100%"} !important;
   @media ${(p) => p.theme.breakpoints.min.sm} {
     max-width: 540px;
   }

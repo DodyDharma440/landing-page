@@ -23,6 +23,7 @@ const MenuContainer = styled.div`
   width: 100%;
   background-color: ${(p) => p.theme.colors.background.primary};
   box-shadow: 1px 1px 3px #00000026;
+  z-index: 999;
   @media ${(p) => p.theme.breakpoints.max.md} {
     padding: 1.5rem;
     max-width: 300px;

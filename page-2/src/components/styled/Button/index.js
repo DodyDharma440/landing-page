@@ -10,7 +10,11 @@ export const ArrowIcon = styled.div`
 
 const Button = styled.button`
   color: ${(p) =>
-    p.variant ? p.theme.colors.text[p.variant] : p.theme.colors.text.primary};
+    p.variant
+      ? p.theme.colors.text[p.variant]
+      : p.text
+      ? p.theme.colors.text[p.text]
+      : p.theme.colors.text.primary};
   border: 1px solid
     ${(p) => (p.variant ? p.theme.colors[p.variant] : p.theme.colors.primary)};
   padding: 0.9rem 1.8rem;
@@ -26,6 +30,8 @@ const Button = styled.button`
   position: relative;
   :hover {
     cursor: pointer;
+    color: ${(p) =>
+      p.variant ? p.theme.colors.text[p.variant] : p.theme.colors.text.primary};
     background-color: ${(p) =>
       p.variant ? p.theme.colors[p.variant] : p.theme.colors.primary};
   }
