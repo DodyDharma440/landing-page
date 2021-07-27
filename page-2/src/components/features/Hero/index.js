@@ -2,7 +2,12 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { BsFillPlayFill } from "react-icons/bs";
 import { Button } from "components/common";
-import { Section, Container, FlexRow as FlexRowStyle } from "components/styled";
+import {
+  Section,
+  Container,
+  FlexRow as FlexRowStyle,
+  Title,
+} from "components/styled";
 import { HeroImage } from "assets/images";
 import { useScreenWidth } from "hooks";
 
@@ -40,13 +45,6 @@ const TitleRow = styled.div`
   }
 `;
 
-const Title = styled.h1`
-  font-size: 48px;
-  line-height: 1;
-  margin-bottom: 2rem;
-  color: ${(p) => p.light && p.theme.colors.text.light};
-`;
-
 const Description = styled.p`
   margin-bottom: 2rem;
   color: ${(p) => p.light && p.theme.colors.text.light};
@@ -59,6 +57,7 @@ const Image = styled.img`
 
 const PlayPopup = styled.div`
   display: flex;
+  align-items: center;
   left: -60px;
   bottom: 4rem;
   position: absolute;
@@ -73,8 +72,8 @@ const PlayButton = styled.a`
   ::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background-color: ${(p) => p.theme.colors.background.secondary};
     animation: ${PingAnimation} 4s infinite;
@@ -83,12 +82,16 @@ const PlayButton = styled.a`
   ::after {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     z-index: 1;
     background-color: ${(p) => p.theme.colors.secondary};
   }
+`;
+
+const PlayPopupText = styled.div`
+  padding-left: 2rem;
 `;
 
 const MobileHeroContainer = styled.div`
@@ -127,6 +130,10 @@ const DesktopHero = () => (
             color="#fff"
           />
         </PlayButton>
+        <PlayPopupText>
+          <h1 style={{ color: "#fff" }}>Watch Intro Video</h1>
+          <p style={{ color: "#fff" }}>YOU WILL LOVE OUR EXECUTION</p>
+        </PlayPopupText>
       </PlayPopup>
       <Image src={HeroImage} />
     </RowContent>
@@ -153,7 +160,7 @@ const Hero = () => {
   const windowWidth = useScreenWidth();
 
   return (
-    <Section paddingTop="0">
+    <Section paddingTop="0" id="#home">
       <Container fluid noPadding>
         {windowWidth > 992 ? <DesktopHero /> : <MobileHero />}
       </Container>

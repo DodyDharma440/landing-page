@@ -19,6 +19,14 @@ const Content = styled.div`
 
 const MenuButton = styled.div`
   cursor: pointer;
+  position: fixed;
+  background-color: ${(p) => p.theme.colors.background.primary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  z-index: 100;
 `;
 
 const Header = () => {
@@ -31,6 +39,7 @@ const Header = () => {
           <MenuButton onClick={onOpen}>
             <HiMenuAlt2 size={36} />
           </MenuButton>
+          <div></div>
           <Button>Book Now</Button>
         </Content>
       </Container>

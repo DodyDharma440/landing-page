@@ -7,6 +7,9 @@ const Section = styled.section`
     p.background
       ? p.theme.colors.background[p.background]
       : p.theme.colors.background.primary};
+  @media ${(p) => p.theme.breakpoints.max.md} {
+    padding: 40px 0px;
+  }
 `;
 
 export default Section;
